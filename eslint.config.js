@@ -10,7 +10,7 @@ import globals from 'globals'
 
 export default tseslint.config(
   {
-    ignores: ['dist', 'node_modules', 'src-tauri', 'vite.config.ts']
+    ignores: ['dist', 'node_modules', 'src-tauri', 'vite.config.ts', 'bun.lock']
   },
 
   js.configs.recommended,
@@ -50,13 +50,16 @@ export default tseslint.config(
     },
 
     rules: {
-      // TypeScript strict
+      // TypeScript hardcore strict
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/consistent-type-imports': 'error',
-      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'error',
       '@typescript-eslint/no-floating-promises': 'error',
       '@typescript-eslint/no-misused-promises': 'error',
+      '@typescript-eslint/strict-boolean-expressions': 'error',
+      '@typescript-eslint/await-thenable': 'error',
+      '@typescript-eslint/no-unnecessary-type-assertion': 'error',
 
       // unused imports
       'unused-imports/no-unused-imports': 'error',
